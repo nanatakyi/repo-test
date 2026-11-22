@@ -25,6 +25,28 @@ This is a static frontend prototype. No build tools are required.
 
 4. Visit http://127.0.0.1:8000
 
+## Run with Docker
+Build and start the static site with Docker:
+
+```bash
+docker build -t marketflow-pos .
+docker run --rm -p 8080:80 marketflow-pos
+```
+
+Visit http://127.0.0.1:8080
+
+To build the image before every local commit, configure this clone to use the
+included Git hook:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The commit is stopped if the build fails. The GitHub Actions workflow also
+builds the image on pushes and pull requests. To require a successful build
+before merging, configure the `Docker build / build` check as required in the
+repository's branch protection settings.
+
 ## Important prototype limitations
 This is a frontend demonstration, not a production POS system. Demo records are stored in JavaScript and most changes are held only in the current browser session. Offline transactions are demonstrated with browser local storage, but there is no server synchronization yet.
 
