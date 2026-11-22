@@ -33,7 +33,7 @@ docker build -t marketflow-pos .
 docker run --rm -p 8080:80 marketflow-pos
 ```
 
-Visit http://127.0.0.1:8080
+Visit http://127.0.0.1:8080. The container serves the site over HTTP on port 80.
 
 To build the image before every local commit, configure this clone to use the
 included Git hook:
